@@ -1,0 +1,26 @@
+@use '../../../styles/_variables.scss' as *;
+
+.btn {
+  padding: 0.5em 1.2em;
+  border-radius: 6px;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  background: $color-accent;
+  color: $color-fg;
+  transition: background 0.2s;
+  &:hover {
+    background: color-mix(in srgb, $color-accent 90%, black 10%);
+  }
+}
+
+.btn--outline {
+  background: transparent;
+  color: $color-accent;
+  border: 2px solid $color-accent;
+  &:hover {
+    background: $color-accent;
+    color: $color-fg;
+  }
+} 
