@@ -1,0 +1,19 @@
+@use './_variables.scss' as *;
+@use '../modules/ui/Button/Button.module.scss' as *;
+@use '../modules/ui/Input/Input.module.scss' as *;
+@use '../modules/ui/Modal/Modal.module.scss' as *;
+@use '../modules/ui/Loader/Loader.module.scss' as *;
+@use '../modules/ui/Card/Card.module.scss' as *;
+
+body {
+  margin: 0;
+  font-family: $font-main;
+  background: $color-bg;
+  color: $color-fg;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+} 
