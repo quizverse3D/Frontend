@@ -1,22 +1,24 @@
-@use '../../../styles/_variables.scss' as *;
-
 .loader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
 }
 
 .spinner {
-  width: 32px;
-  height: 32px;
-  border: 4px solid $color-header;
-  border-top: 4px solid $color-accent;
-  border-radius: 50%;
-  animation: loader-spin 1s linear infinite;
+    width: 32px;
+    height: 32px;
+    border: 4px solid #741a1a;
+    border-top: 4px solid #3b1515;
+    border-radius: 50%;
+    animation: loader-spin 1s linear infinite;
 }
 
 @keyframes loader-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-} 
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,12 +1,8 @@
 // Пример структуры роутов
-import MainMenuPage from '@/pages/MainMenu';
-import GameBoardPage from '@/pages/GameBoard';
-import AvatarEditorPage from '@/pages/AvatarEditor';
-import SettingsPage from '@/pages/Settings';
+import { Game } from '@/pages/Game';
+import { Home } from '@/pages/Home';
 
 export const routes = [
-  { path: '/', element: MainMenuPage },
-  { path: '/game', element: GameBoardPage },
-  { path: '/avatar', element: AvatarEditorPage },
-  { path: '/settings', element: SettingsPage },
-]; 
+    { path: '/', element: Home },
+    { path: '/game', element: Game },
+];

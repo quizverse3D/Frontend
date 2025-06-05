@@ -1,2 +1,1 @@
-import AvatarEditor from './AvatarEditor.jsx';
-export default AvatarEditor; 
+export { Avatar } from './Avatar.jsx';
