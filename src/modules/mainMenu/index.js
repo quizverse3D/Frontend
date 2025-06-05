@@ -1,1 +1,1 @@
-export { MainMenu } from './MainMenu.jsx';
+export { MainMenu } from './components/MainMenu/MainMenu.jsx';

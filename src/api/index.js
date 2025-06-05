@@ -18,7 +18,3 @@ export async function apiRequest(endpoint, config = {}) {
   const response = await api(endpoint, config);
   return response.data;
 }
-
-// Пример использования:
-// const data = await apiRequest('/rooms', { method: 'get' });
-// const created = await apiRequest('/rooms', { method: 'post', data: payload }); 

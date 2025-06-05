@@ -1,5 +1,6 @@
 import React from 'react';
+import { MainMenu } from '../../modules/mainMenu';
 
 export const Home = () => {
-    return <div>HomePage</div>;
+    return <MainMenu />;
 };
