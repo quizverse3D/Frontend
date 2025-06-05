@@ -1,0 +1,25 @@
+@use './colors-base' as base;
+@use './colors-neon' as neon;
+$theme-standard: (
+    background: base.$dark-2,
+    primary: neon.$neon-blue,
+    secondary: neon.$neon-purple,
+    accent-gradient: neon.$gradient-blue-purple,
+    text: base.$white,
+);
+
+$theme-contrast: (
+    background: #fafafa,
+    primary: #5a189a,
+    secondary: #9d4edd,
+    accent-gradient: linear-gradient(135deg, #5a189a 0%, #9d4edd 100%),
+    text: #12121d,
+);
+
+$theme-esports: (
+    background: #1a0000,
+    primary: #ff2d75,
+    secondary: #ff006e,
+    accent-gradient: linear-gradient(135deg, #ff2d75 0%, #ff006e 100%),
+    text: base.$white,
+);

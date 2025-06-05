@@ -1,0 +1,30 @@
+// Базовые неоновые цвета (темные варианты)
+$neon-blue: #00c7b3;
+$neon-purple: #7a36b5;
+$neon-pink: #d9005b;
+$neon-violet: #3d0e6b;
+
+// Альтернативные варианты (еще темнее):
+// $neon-blue: #009688;
+// $neon-purple: #5e2a8c;
+// $neon-pink: #b0004b;
+// $neon-violet: #2a094d;
+
+// Градиенты
+$gradient-blue-purple: linear-gradient(
+    135deg,
+    $neon-blue 0%,
+    $neon-purple 100%
+);
+
+$gradient-purple-pink: linear-gradient(
+    135deg,
+    $neon-purple 0%,
+    $neon-pink 100%
+);
+
+$gradient-violet-blue: linear-gradient(
+    135deg,
+    $neon-violet 0%,
+    $neon-blue 100%
+);

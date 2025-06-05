@@ -1,1 +1,1 @@
- 
+export { GameField } from './GameField';
