@@ -1,19 +1,17 @@
-@use './_variables.scss' as *;
-@use '../modules/ui/Button/Button.module.scss' as *;
-@use '../modules/ui/Input/Input.module.scss' as *;
-@use '../modules/ui/Modal/Modal.module.scss' as *;
-@use '../modules/ui/Loader/Loader.module.scss' as *;
-@use '../modules/ui/Card/Card.module.scss' as *;
+@use './variables/colors-base' as base;
+@use './variables/colors-neon' as neon;
+@use './variables/colors-ui' as ui;
+@use './variables/typography' as font;
 
 body {
-  margin: 0;
-  font-family: $font-main;
-  background: $color-bg;
-  color: $color-fg;
+    margin: 0;
+    font-family: font.$font-primary;
+    background: base.$dark-1;
+    color: ui.$ui-text-primary;
 }
 
 #root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-} 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
