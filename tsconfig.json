@@ -1,0 +1,54 @@
+{
+    "compilerOptions": {
+        /* Базовые настройки */
+        "target": "ES2022",
+        "module": "ESNext",
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "jsx": "react-jsx",
+        /* Пути и модули */
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": [
+                "./*"
+            ],
+            "@components/*": [
+                "components/*"
+            ],
+            "@assets/*": [
+                "assets/*"
+            ]
+        },
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "allowImportingTsExtensions": true,
+        /* Строгость TypeScript */
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        /* Декларации и сборка */
+        "declaration": true,
+        "outDir": "./dist",
+        "emitDeclarationOnly": true,
+        "isolatedModules": true,
+        /* Совместимость */
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "src/**/*",
+        "global.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/*.test.ts",
+        "**/*.stories.tsx"
+    ]
+}

@@ -1,1 +1,13 @@
- 
+ @use 'sass:color';
+
+ .App {
+    font-family: $font-primary;
+    height: 100vh;
+    background: linear-gradient(
+        -180deg,
+        $red 0%,
+        color.mix($red, $dark, $weight: 70%) 0%,
+        $dark 100%
+    );
+    color: $gray;
+}

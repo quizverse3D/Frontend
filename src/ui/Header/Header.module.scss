@@ -1,5 +1,10 @@
 .Header {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     width: 100%;
+    background-color: transparent;
+    box-shadow: 0 0 20px rgba($second-red, 0.5);
+    border-bottom: 1px solid $second-red;
+    height: $header-height;
 }

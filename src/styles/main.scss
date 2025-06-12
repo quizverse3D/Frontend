@@ -1,17 +1,1 @@
-@use './variables/colors-base' as base;
-@use './variables/colors-neon' as neon;
-@use './variables/colors-ui' as ui;
-@use './variables/typography' as font;
-
-body {
-    margin: 0;
-    font-family: font.$font-primary;
-    background: base.$dark-1;
-    color: ui.$ui-text-primary;
-}
-
-#root {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+@use 'reset';

@@ -1,0 +1,16 @@
+.HomePage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - $header-height);
+}
+
+.MenuWrapper {
+    text-align: center;
+    height: 300px;
+    width: 370px;
+    padding: 2rem;
+    background: rgba($red, 0.8);
+    border: 1px solid $second-red;
+    box-shadow: 0 0 30px rgba($second-red, 0.5);
+}

@@ -1,4 +1,4 @@
-@use './colors-neon' as neon;
+@use './colors-neon' as *;
 
 $font-primary: 'Rajdhani', 'Segoe UI', sans-serif;
 $font-secondary: 'Orbitron', 'Arial', sans-serif; // Для заголовков
@@ -15,4 +15,4 @@ $text-3xl: 1.875rem;
 $text-4xl: 2.25rem;
 $text-5xl: 3rem;
 
-$text-glow: 0 0 8px rgba(neon.$neon-blue, 0.7);
+$text-glow: 0 0 8px rgba($neon-blue, 0.7);
