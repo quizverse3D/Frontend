@@ -11,13 +11,15 @@ i18n.use(Backend)
         fallbackLng: 'en',
         // debug: __IS_DEV__,
         debug: false,
+        defaultNS: 'pages',
+        ns: ['pages'],
 
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
         },
 
         backend: {
-            loadPath: '/locales/{{lng}}.json',
+            loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
     });
 
