@@ -1,0 +1,19 @@
+{
+  "home": {
+    "single": "Single Player",
+    "avatar": "Avatar Editor",
+    "multiplayer": "Multiplayer"
+  },
+  "game": {
+    "title": "Game"
+  },
+  "multiplayer": {
+    "title": "Multiplayer"
+  },
+  "avatar": {
+    "title": "Avatar Editor"
+  },
+  "settings": {
+    "title": "Settings"
+  }
+}
