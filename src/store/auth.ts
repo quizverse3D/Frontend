@@ -1,0 +1,1 @@
+// TODO: Реализовать auth store (например, через Zustand или Context) 
