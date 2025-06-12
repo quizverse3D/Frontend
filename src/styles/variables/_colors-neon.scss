@@ -1,30 +1,22 @@
 // Базовые неоновые цвета (темные варианты)
-$neon-blue: #00c7b3;
-$neon-purple: #7a36b5;
-$neon-pink: #d9005b;
-$neon-violet: #3d0e6b;
+$neon-blue: #00f0ff; // Яркий аква-синий (основной акцент)
+$neon-pink: #ff00aa; // Розовый (второй акцент)
+$neon-purple: #aa00ff; // Пурпурный (для контраста)
+$neon-yellow: #ffee00; // Жёлтый (предупреждения)
+$neon-green: #00ff88; // Зелёный (статус "успех")
 
-// Альтернативные варианты (еще темнее):
-// $neon-blue: #009688;
-// $neon-purple: #5e2a8c;
-// $neon-pink: #b0004b;
-// $neon-violet: #2a094d;
 
-// Градиенты
-$gradient-blue-purple: linear-gradient(
-    135deg,
-    $neon-blue 0%,
-    $neon-purple 100%
-);
+// Полупрозрачные версии (для эффектов)
+$neon-blue-transparent: rgba(0, 240, 255, 0.2);
+$neon-pink-transparent: rgba(255, 0, 170, 0.2);
 
-$gradient-purple-pink: linear-gradient(
-    135deg,
-    $neon-purple 0%,
-    $neon-pink 100%
-);
-
-$gradient-violet-blue: linear-gradient(
-    135deg,
-    $neon-violet 0%,
-    $neon-blue 100%
+// Градиенты (голограммы, свечения)
+$hologram-blue: linear-gradient(135deg, $neon-blue-transparent 0%, $neon-purple 100%);
+$hologram-pink: linear-gradient(135deg, $neon-pink-transparent 0%, $neon-blue 70%);
+$scanline: repeating-linear-gradient(
+  to bottom,
+  transparent,
+  transparent 2px,
+  $neon-blue-transparent 2px,
+  $neon-blue-transparent 4px
 );
