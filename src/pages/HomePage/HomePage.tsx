@@ -1,26 +1,57 @@
 import React from 'react';
-import { List } from '@/ui/List/List';
-import cls from './Home.module.scss';
-import { InfiniteParticlesBackground } from './components/Background/Background';
+import { useTranslation } from 'react-i18next';
+import { MatrixRain } from './components/Background/Background';
 import {
     getRouteGame,
     getRouteAvatar,
     getRouteMultiplayer,
 } from '@/shared/consts/routes';
-import { useTranslation } from 'react-i18next';
+import { ListItemLink } from '@/ui/List/ListItemLink';
+import { List } from '@/ui/List/List';
+import cls from './Home.module.scss';
+
+// Выносим функции маршрутов в константы, чтобы они не вызывались при каждом рендере
+const ROUTES = {
+    game: getRouteGame(),
+    multiplayer: getRouteMultiplayer(),
+    avatar: getRouteAvatar(),
+};
 
 export const HomePage = () => {
     const { t } = useTranslation('pages');
-    const ListItems = [
-        { name: t('home.single'), path: getRouteGame() },
-        { name: t('home.multiplayer'), path: getRouteMultiplayer() },
-        { name: t('home.avatar'), path: getRouteAvatar() },
-    ];
+
     return (
         <div className={cls.HomePage}>
-            {/* <InfiniteParticlesBackground /> */}
+            {/* <MatrixRain /> */}
             <div className={cls.MenuWrapper}>
-                <List items={ListItems}></List>
+                <List className={cls.MenuList}>
+                    <ListItemLink
+                        to={ROUTES.game}
+                        itemClassName={cls.MenuItem}
+                        linkClassName={cls.MenuLink}
+                        activeClassName={cls.ActiveLink}
+                    >
+                        {t('home.single')}
+                    </ListItemLink>
+
+                    <ListItemLink
+                        to={ROUTES.multiplayer}
+                        itemClassName={cls.MenuItem}
+                        linkClassName={cls.MenuLink}
+                        activeClassName={cls.ActiveLink}
+                    >
+                        {t('home.multiplayer')}
+                    </ListItemLink>
+
+                    <ListItemLink
+                        to={ROUTES.avatar}
+                        itemClassName={cls.MenuItem}
+                        linkClassName={cls.MenuLink}
+                        activeClassName={cls.ActiveLink}
+                    >
+                        {t('home.avatar')}
+                    </ListItemLink>
+                </List>
             </div>
         </div>
     );

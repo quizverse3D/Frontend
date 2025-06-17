@@ -14,3 +14,19 @@
     border: 1px solid $second-red;
     box-shadow: 0 0 30px rgba($second-red, 0.5);
 }
+
+.Menu {
+    align-items: flex-start;
+}
+
+.MenuItem {
+    padding: 10px;
+    border: 1px solid transparent;
+    &:hover {
+        border: 1px solid;
+    }
+}
+
+.MenuLink {
+    text-transform: uppercase;
+}

@@ -1,9 +1,13 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { classNames } from '@/shared/utils/classNames/classNames';
+import cls from './List.module.scss';
+
 interface ListItemProps {
-    path: string;
-    name: string;
-    icon?: ReactNode;
+    id: string;
+    className?: string;
+    children: React.ReactNode;
 }
-export const ListItem = (props: ListItemProps) => {
-    return <div>MenuItems</div>;
-};
+
+export const ListItem = ({ className, children }: ListItemProps) => (
+    <li className={classNames(cls.Item, {}, [className])}>{children}</li>
+);

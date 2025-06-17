@@ -3,7 +3,7 @@ import { memo, ReactNode } from 'react';
 import { classNames } from '@/shared/utils/classNames/classNames';
 import cls from './AppLink.module.scss';
 
-interface AppLinkProps extends LinkProps {
+export interface AppLinkProps extends LinkProps {
     className?: string;
     children?: ReactNode;
     activeClassName?: string;
