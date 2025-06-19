@@ -4,3 +4,39 @@
     list-style-type: none;
     gap: 10px;
 }
+
+.ListItem {
+    border-radius: 6px;
+    transition: background 0.25s, box-shadow 0.3s;
+    cursor: pointer;
+    background: none;
+    &:hover,
+    &.active {
+        background: linear-gradient(
+            90deg,
+            rgba($red, 0.12) 0%,
+            rgba($second-red, 0.18) 100%
+        );
+        box-shadow: 0 0 12px $second-red;
+    }
+
+    &:hover .ListItemLink,
+    &.active .ListItemLink {
+        text-shadow: 0 0 8px $second-red, 0 0 16px $red;
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+    }
+}
+
+.ListItemLink {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    color: $white;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    text-shadow: none;
+    transition: color 0.25s, text-shadow 0.3s;
+}

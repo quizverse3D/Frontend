@@ -9,6 +9,7 @@ import {
 import { ListItemLink } from '@/ui/List/ListItemLink';
 import { List } from '@/ui/List/List';
 import cls from './Home.module.scss';
+import { CyberDivider } from '@/ui/CyberDivider/CyberDivider';
 
 // Выносим функции маршрутов в константы, чтобы они не вызывались при каждом рендере
 const ROUTES = {
@@ -17,6 +18,8 @@ const ROUTES = {
     avatar: getRouteAvatar(),
 };
 
+
+
 export const HomePage = () => {
     const { t } = useTranslation('pages');
 
@@ -24,6 +27,8 @@ export const HomePage = () => {
         <div className={cls.HomePage}>
             {/* <MatrixRain /> */}
             <div className={cls.MenuWrapper}>
+                <h1 className={cls.Title}>Quizverse 3D</h1>
+                <CyberDivider />
                 <List className={cls.MenuList}>
                     <ListItemLink
                         to={ROUTES.game}

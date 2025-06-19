@@ -4,7 +4,8 @@ import cls from './SettingsPage.module.scss';
 export const SettingsPage = () => {
     return (
         <div className={classNames(cls.SettingsPage)}>
-            Settings
+            <div className={cls['CyberTitle']}>Настройки</div>
+            <div className={cls['CyberDivider']} />
         </div>
     );
 };

@@ -2,6 +2,7 @@ import { LinkProps, NavLink } from 'react-router-dom';
 import { memo, ReactNode } from 'react';
 import { classNames } from '@/shared/utils/classNames/classNames';
 import cls from './AppLink.module.scss';
+import styles from './AppLink.module.scss';
 
 export interface AppLinkProps extends LinkProps {
     className?: string;

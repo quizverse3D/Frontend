@@ -1,187 +1,151 @@
-import { useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import styles from './Background.module.scss';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
-export const InfiniteParticlesBackground = () => {
-    const mountRef = useRef(null); // Ссылка на DOM-элемент для монтирования Three.js
-    const animationRef = useRef(); // Ссылка на ID анимации
-    const particlesRef = useRef(); // Ссылка на объект частиц
-    const sceneRef = useRef(); // Ссылка на сцену Three.js
-    const cameraRef = useRef(); // Ссылка на камеру Three.js
-    const rendererRef = useRef(); // Ссылка на рендерер Three.js
+export const MatrixRain: React.FC = () => {
+    const mountRef = useRef<HTMLDivElement>(null);
 
-    // Конфигурация частиц. Используем useMemo, чтобы она не пересчитывалась при каждом рендере
-    const particlesConfig = useMemo(
-        () => ({
-            count: 10000,
-            size: 2,
-            color: 0x00f5d4,
-            areaSize: 3000,
-            speed: 0.5,
-            rotationSpeed: 0.001,
-        }),
-        []
-    );
-
-    // Создание частиц
-    const createParticles = useCallback(() => {
-        // Создаем массивы для позиций и размеров частиц
-        const positions = new Float32Array(particlesConfig.count * 3);
-        const sizes = new Float32Array(particlesConfig.count);
-
-        for (let i = 0; i < particlesConfig.count * 3; i += 3) {
-            // Равномерное распределение в сфере
-            const radius =
-                (Math.cbrt(Math.random()) * particlesConfig.areaSize) / 2;
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.acos(2 * Math.random() - 1);
-
-            positions[i] = radius * Math.sin(phi) * Math.cos(theta);
-            positions[i + 1] = radius * Math.sin(phi) * Math.sin(theta);
-            positions[i + 2] = radius * Math.cos(phi);
-
-            sizes[i / 3] = particlesConfig.size * (0.5 + Math.random() * 0.5);
-        }
-
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute(
-            'position',
-            new THREE.BufferAttribute(positions, 3)
-        );
-        geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-        const material = new THREE.PointsMaterial({
-            color: particlesConfig.color,
-            size: particlesConfig.size,
-            sizeAttenuation: true,
-            transparent: true,
-            opacity: 0.8,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false,
-        });
-
-        const particles = new THREE.Points(geometry, material);
-        particles.rotation.set(
-            Math.random() * Math.PI,
-            Math.random() * Math.PI,
-            Math.random() * Math.PI
-        );
-
-        return particles;
-    }, [particlesConfig]);
-
-    // Инициализация Three.js
-    const initThreeScene = useCallback(() => {
-        if (!mountRef.current) return;
-
-        // Сцена
+    useEffect(() => {
+        // 1. Инициализация сцены
         const scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x020217, 0.0005);
-        sceneRef.current = scene;
+        scene.background = new THREE.Color(0x000000);
 
-        // Камера
         const camera = new THREE.PerspectiveCamera(
             75,
             window.innerWidth / window.innerHeight,
-            1,
-            10000
+            0.1,
+            1000
         );
-        camera.position.z = 500;
-        cameraRef.current = camera;
+        camera.position.z = 5;
 
-        // Рендерер
-        const renderer = new THREE.WebGLRenderer({
-            antialias: true,
-            alpha: true,
-        });
-        renderer.setPixelRatio(window.devicePixelRatio);
+        const renderer = new THREE.WebGLRenderer({ antialias: false });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.outputEncoding = THREE.sRGBEncoding;
-        mountRef.current.appendChild(renderer.domElement);
-        rendererRef.current = renderer;
+        mountRef.current?.appendChild(renderer.domElement);
 
-        // Частицы
-        const particles = createParticles();
-        scene.add(particles);
-        particlesRef.current = particles;
+        // 2. Настройки эффекта (как в фильме)
+        const COLUMNS = 50;
+        const CHAR_SIZE = 0.2;
+        const FALL_SPEED = 0.05;
+        const TRAIL_LENGTH = 15; // Длина "хвоста" у символов
 
-        // Обработчик ресайза
+        // 3. Символы (только латиница и цифры)
+        const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        const particles: THREE.Mesh[] = [];
+
+        // 4. Загрузка моноширинного шрифта
+        const fontLoader = new FontLoader();
+        fontLoader.load(
+            'https://threejs.org/examples/fonts/helvetiker_regular.typeface.json',
+            (font) => {
+                // Создаём колонки символов
+                for (let i = 0; i < COLUMNS; i++) {
+                    const x = (i / COLUMNS) * 20 - 10;
+
+                    // Главный яркий символ
+                    createParticle(x, 10, true);
+
+                    // Создаём "хвост" из тусклых символов
+                    for (let j = 1; j < TRAIL_LENGTH; j++) {
+                        createParticle(x, 10 - j * CHAR_SIZE * 1.2, false);
+                    }
+                }
+
+                function createParticle(x: number, y: number, isHead: boolean) {
+                    const char =
+                        chars[Math.floor(Math.random() * chars.length)];
+                    const geometry = new TextGeometry(char, {
+                        font: font,
+                        size: CHAR_SIZE,
+                        height: 0.01,
+                    });
+
+                    const material = new THREE.MeshBasicMaterial({
+                        color: new THREE.Color(0x00ff00),
+                        transparent: true,
+                        opacity: isHead ? 1 : 0.3 * (1 - y / 20), // Плавное затухание
+                    });
+
+                    const particle = new THREE.Mesh(geometry, material);
+                    particle.position.set(x, y, 0);
+                    particle.userData = {
+                        speed: FALL_SPEED * (0.7 + Math.random() * 0.6),
+                        isHead: isHead,
+                        originalY: y,
+                    };
+                    scene.add(particle);
+                    particles.push(particle);
+                }
+
+                // 5. Анимация с deltaTime для плавности
+                let lastTime = 0;
+                const animate = (time: number) => {
+                    requestAnimationFrame(animate);
+                    const deltaTime = (time - lastTime) / 1000;
+                    lastTime = time;
+
+                    particles.forEach((particle) => {
+                        particle.position.y -=
+                            particle.userData.speed * deltaTime * 60;
+
+                        // Если символ ушёл за нижнюю границу
+                        if (particle.position.y < -10) {
+                            particle.position.y = 10;
+
+                            // Обновляем символ в голове
+                            if (particle.userData.isHead) {
+                                const char =
+                                    chars[
+                                        Math.floor(Math.random() * chars.length)
+                                    ];
+                                particle.geometry.dispose();
+                                particle.geometry = new TextGeometry(char, {
+                                    font: font,
+                                    size: CHAR_SIZE,
+                                    height: 0.01,
+                                });
+                            }
+                        }
+                    });
+
+                    renderer.render(scene, camera);
+                };
+
+                animate(0);
+            }
+        );
+
+        // 6. Ресайз
         const handleResize = () => {
-            if (!cameraRef.current || !rendererRef.current) return;
-
-            cameraRef.current.aspect = window.innerWidth / window.innerHeight;
-            cameraRef.current.updateProjectionMatrix();
-            rendererRef.current.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         };
 
         window.addEventListener('resize', handleResize);
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            mountRef.current?.removeChild(renderer.domElement);
+            particles.forEach((p) => {
+                p.geometry.dispose();
+                p.material.dispose();
+                scene.remove(p);
+            });
         };
-    }, [createParticles]);
+    }, []);
 
-    // Анимация
-    const animate = useCallback(() => {
-        animationRef.current = requestAnimationFrame(animate);
-
-        if (
-            particlesRef.current &&
-            sceneRef.current &&
-            cameraRef.current &&
-            rendererRef.current
-        ) {
-            // Плавное вращение
-            particlesRef.current.rotation.y +=
-                particlesConfig.rotationSpeed * 0.5;
-            particlesRef.current.rotation.x +=
-                particlesConfig.rotationSpeed * 0.2;
-
-            // Эффект движения вперед через изменение позиции камеры
-            cameraRef.current.position.z -= particlesConfig.speed;
-
-            // Рециклинг частиц - когда камера проходит определенную дистанцию,
-            // мы сбрасываем ее позицию и перемещаем частицы
-            if (cameraRef.current.position.z < -1000) {
-                cameraRef.current.position.z = 500;
-                if (particlesRef.current) {
-                    particlesRef.current.position.z += 1500;
-                }
-            }
-
-            rendererRef.current.render(sceneRef.current, cameraRef.current);
-        }
-    }, [particlesConfig]);
-
-    useEffect(() => {
-        initThreeScene();
-        animate();
-
-        return () => {
-            if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
-            }
-
-            if (mountRef.current && rendererRef.current?.domElement) {
-                mountRef.current.removeChild(rendererRef.current.domElement);
-            }
-
-            // Освобождение памяти
-            if (particlesRef.current) {
-                const geometry = particlesRef.current.geometry;
-                const material = particlesRef.current.material;
-
-                geometry.dispose();
-                if (Array.isArray(material)) {
-                    material.forEach((m) => m.dispose());
-                } else {
-                    material.dispose();
-                }
-            }
-
-            rendererRef.current?.dispose();
-        };
-    }, [initThreeScene, animate]);
-
-    return <div ref={mountRef} className={styles.background} />;
+    return (
+        <div
+            ref={mountRef}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                zIndex: 1,
+                width: '100vw',
+                height: '100vh',
+            }}
+        />
+    );
 };

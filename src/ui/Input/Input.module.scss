@@ -1,22 +1,23 @@
-@use '../../../styles/_variables.scss' as *;
-
 .label {
   display: flex;
   flex-direction: column;
   gap: 0.3em;
   font-size: 1rem;
+  color: $white;
 }
 
 .input {
   padding: 0.5em 1em;
   border-radius: 4px;
-  border: 1px solid $color-accent;
+  border: 1.5px solid $second-red;
   font-size: 1rem;
-  color: $color-fg;
-  background: $color-bg;
-  transition: border 0.2s;
-  &:focus {
-    border: 1.5px solid $color-header;
+  color: $white;
+  background: $dark;
+  transition: border 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 6px $second-red;
+  &:focus, &:hover {
+    border: 1.5px solid $red;
     outline: none;
+    box-shadow: 0 0 12px $red, 0 0 24px $neon-blue-transparent inset;
   }
 } 

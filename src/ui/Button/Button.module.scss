@@ -1,26 +1,51 @@
-@use '../../../styles/_variables.scss' as *;
+@use 'sass:color';
 
 .btn {
-  padding: 0.5em 1.2em;
-  border-radius: 6px;
-  border: none;
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  background: $color-accent;
-  color: $color-fg;
-  transition: background 0.2s;
-  &:hover {
-    background: color-mix(in srgb, $color-accent 90%, black 10%);
-  }
-}
+    padding: 0.5em 1.2em;
+    border-radius: 6px;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: background 0.4s cubic-bezier(0.4,0,0.2,1), color 0.2s, box-shadow 0.3s;
 
-.btn--outline {
-  background: transparent;
-  color: $color-accent;
-  border: 2px solid $color-accent;
-  &:hover {
-    background: $color-accent;
-    color: $color-fg;
-  }
-} 
+    // Primary (по умолчанию)
+    background: linear-gradient(90deg, $dark 0%, $red 100%);
+    color: $white;
+    box-shadow: 0 0 8px $second-red;
+    &:hover, &:focus {
+        background: linear-gradient(90deg, $red 0%, $second-red 100%);
+        box-shadow: 0 0 16px $second-red, 0 0 24px $neon-blue-transparent inset;
+        filter: brightness(1.05);
+    }
+
+    // Secondary (темная с красной рамкой)
+    &--secondary {
+        background: $dark;
+        color: $red;
+        border: 2px solid $red;
+        box-shadow: 0 0 8px $red;
+        &:hover, &:focus {
+            background: $red;
+            color: $white;
+            box-shadow: 0 0 16px $second-red, 0 0 24px $neon-blue-transparent inset;
+        }
+    }
+
+    // Accent (неоновая)
+    &--accent {
+        background: linear-gradient(90deg, $neon-blue 0%, $neon-pink 100%);
+        color: $black;
+        box-shadow: 0 0 12px $neon-blue;
+        &:hover, &:focus {
+            background: linear-gradient(90deg, $neon-pink 0%, $neon-blue 100%);
+            color: $black;
+            box-shadow: 0 0 24px $neon-pink, 0 0 40px $neon-blue inset;
+            filter: brightness(1.1);
+        }
+    }
+}
