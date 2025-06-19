@@ -1,0 +1,13 @@
+.LangSwitcherStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 16px;
+}
+.TitleStyle {
+    color: $red;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin: 0;
+}
