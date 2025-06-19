@@ -1,0 +1,26 @@
+ @use 'sass:color';
+@use '../variables/colors-base' as *;
+@use '../variables/sizes' as *;
+
+@mixin page-bg {
+    height: 100%;
+    background: linear-gradient(
+        0deg,
+        $red 0%,
+        color.mix($red, $dark, $weight: 70%) 0%,
+        $dark 50%
+    );
+    box-shadow: 0 0 80px 0 rgba($second-red, 0.25) inset;
+    animation: neon-bg-fade 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes neon-bg-fade {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}

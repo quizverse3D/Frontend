@@ -66,3 +66,9 @@ body {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
+
+html, body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}

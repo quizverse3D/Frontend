@@ -1,0 +1,37 @@
+@use '../variables/colors-neon' as *;
+@use '../variables/_typography' as *;
+
+@mixin base-title {
+    color: $neon-pink;
+    text-shadow: 0 0 10px $neon-pink, 0 0 20px rgba($neon-pink, 0.5);
+    text-align: center;
+    font-family: $font-secondary;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.2em;
+    text-transform: uppercase;
+}
+
+.TitleGlitch {
+    animation: title-glitch-animation 1.2s infinite linear alternate;
+}
+
+@keyframes title-glitch-animation {
+    0% {
+        text-shadow: 2px 0 $neon-pink, -2px 0 $neon-blue;
+    }
+    20% {
+        text-shadow: -2px 0 $neon-pink, 2px 0 $neon-blue;
+    }
+    40% {
+        text-shadow: 2px 2px $neon-blue, -2px -2px $neon-pink;
+    }
+    60% {
+        text-shadow: -2px 2px $neon-pink, 2px -2px $neon-blue;
+    }
+    80% {
+        text-shadow: 2px 0 $neon-pink, -2px 0 $neon-blue;
+    }
+    100% {
+        text-shadow: none;
+    }
+}
