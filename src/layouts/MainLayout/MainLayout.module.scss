@@ -1,29 +1,12 @@
 .MainLayout {
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
-    min-height: 100vh; // Критически важно
     @include page-bg;
 }
 
 .MainLayoutContent {
-    flex: 1 1 auto; // Растягивается на всё доступное пространство
+    flex: 1 1 auto;
     position: relative;
-    z-index: 2; // Над фоном
-}
-
-.MainLayoutBg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
     z-index: 1;
-    pointer-events: none;
-    opacity: 0.07;
-    font-family: 'Fira Mono', monospace;
-    color: rgba($neon-green, 0.5);
-    font-size: 3em;
-    white-space: pre;
-    overflow: hidden;
 }
