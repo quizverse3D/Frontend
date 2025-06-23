@@ -7,21 +7,13 @@ export const LangSwitcher = () => {
     const { t, i18n } = useTranslation();
     const changeLang = (lng: string) => i18n.changeLanguage(lng);
     return (
-        <div className={cls.LangSwitcherStyle}>
-            <div>
-                <Button
-                    className={cls.BtnStyle}
-                    onClick={() => changeLang('ru')}
-                >
-                    RU
-                </Button>
-                <Button
-                    className={cls.BtnStyle}
-                    onClick={() => changeLang('en')}
-                >
-                    EN
-                </Button>
-            </div>
+        <div className={cls.LangSwitcher}>
+            <Button className={cls.Btn} onClick={() => changeLang('ru')}>
+                RU
+            </Button>
+            <Button className={cls.Btn} onClick={() => changeLang('en')}>
+                EN
+            </Button>
         </div>
     );
 };

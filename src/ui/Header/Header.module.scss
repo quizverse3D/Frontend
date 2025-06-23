@@ -4,30 +4,37 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    background: linear-gradient(90deg, $black 0%, $dark 70%, rgba($red, 0.7) 100%);
-    box-shadow: 0 0 20px rgba($second-red, 0.5);
+    background: linear-gradient(
+        270deg,
+        $red 0%,
+        color.mix($red, $dark, $weight: 70%) 0%,
+        $dark 50%
+    );
+    box-shadow: 0 0 80px 0 rgba($second-red, 0.25) inset;
     border-bottom: 1px solid $second-red;
     padding: 10px;
     height: $header-height;
+    opacity: 0.8;
+    z-index: 1;
 }
 
-.LogoutBtn {
-    margin-left: 1.5em;
-    padding: 0.4em 1.2em;
-    border-radius: 6px;
-    border: none;
-    background: linear-gradient(90deg, $dark 0%, $red 100%);
-    color: $white;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 0 8px $second-red;
-    transition: background 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    &:hover {
-        background: linear-gradient(90deg, $red 0%, $second-red 100%);
-        box-shadow: 0 0 16px $second-red, 0 0 24px $neon-blue-transparent inset;
-        filter: brightness(1.05);
-    }
-}
+// .LogoutBtn {
+//     margin-left: 1.5em;
+//     padding: 0.4em 1.2em;
+//     border-radius: 6px;
+//     border: none;
+//     background: linear-gradient(90deg, $dark 0%, $red 100%);
+//     color: $white;
+//     font-weight: 600;
+//     cursor: pointer;
+//     box-shadow: 0 0 8px $second-red;
+//     transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+//     position: relative;
+//     overflow: hidden;
+//     z-index: 1;
+//     &:hover {
+//         background: linear-gradient(90deg, $red 0%, $second-red 100%);
+//         box-shadow: 0 0 16px $second-red, 0 0 24px $neon-blue-transparent inset;
+//         filter: brightness(1.05);
+//     }
+// }

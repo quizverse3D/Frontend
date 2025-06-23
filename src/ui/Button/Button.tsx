@@ -1,16 +1,22 @@
-import React from 'react';
-import styles from './Button.module.scss';
+import React, { ReactNode } from 'react';
+import cls from './Button.module.scss';
+import { classNames } from '@/shared/utils/classNames/classNames';
 
-function Button({ children, variant = 'primary', ...props }) {
-  const className = [
-    styles.btn,
-    variant === 'outline' ? styles['btn--outline'] : ''
-  ].join(' ');
-  return (
-    <button className={className} {...props}>
-      {children}
-    </button>
-  );
+export interface ButtonProps {
+    className?: string;
+    children?: ReactNode;
 }
 
-export default Button; 
+function Button(props: ButtonProps) {
+    const { className = '', children, ...otherProps } = props;
+    return (
+        <button
+            className={classNames(cls.Btn, {}, [className])}
+            {...otherProps}
+        >
+            {children}
+        </button>
+    );
+}
+
+export default Button;
