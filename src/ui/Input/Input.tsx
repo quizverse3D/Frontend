@@ -1,13 +1,42 @@
-import React from 'react';
-import styles from './Input.module.scss';
+import React, { InputHTMLAttributes, memo } from 'react';
+import cls from './Input.module.scss';
 
-function Input({ label, ...props }) {
-  return (
-    <label className={styles.label}>
-      {label && <span>{label}</span>}
-      <input className={styles.input} {...props} />
-    </label>
-  );
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly' | 'size'
+>;
+interface InputProps extends HTMLInputProps {
+    name?: string;
+    className?: string;
+    value?: string | number;
+    label?: string;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
+    disabled?: boolean;
+    username?: string;
 }
+export const Input = memo((props: InputProps) => {
+    const {
+        className,
+        value,
+        onChange,
+        type = 'text',
+        placeholder,
+        autofocus,
+        readonly,
+        label,
+        ...otherProps
+    } = props;
 
-export default Input; 
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange?.(e.target.value);
+    };
+
+    return (
+        <label className={cls.Label}>
+            {label && <span>{label}</span>}
+            <input className={cls.Input} {...otherProps} />
+        </label>
+    );
+});
