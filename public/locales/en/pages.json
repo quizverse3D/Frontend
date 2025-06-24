@@ -2,7 +2,8 @@
   "home": {
     "single": "Single Player",
     "avatar": "Avatar Editor",
-    "multiplayer": "Multiplayer"
+    "multiplayer": "Multiplayer",
+    "settings": "Settings"
   },
   "game": {
     "title": "Game"

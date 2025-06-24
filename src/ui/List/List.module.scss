@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    gap: 10px;
+    gap: 0.5em;
 }
 
 .ListItem {
@@ -10,6 +10,7 @@
     transition: background 0.25s, box-shadow 0.3s;
     cursor: pointer;
     background: none;
+    color: $white;
     &:hover,
     &.active {
         background: linear-gradient(
@@ -32,7 +33,7 @@
 .ListItemLink {
     display: block;
     width: 100%;
-    padding: 10px 0;
+    padding: 0.4em 0;
     color: $white;
     background: none;
     -webkit-background-clip: unset;

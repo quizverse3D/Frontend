@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MatrixRain } from './components/Background/Background';
 import {
@@ -10,6 +10,9 @@ import { ListItemLink } from '@/ui/List/ListItemLink';
 import { List } from '@/ui/List/List';
 import cls from './Home.module.scss';
 import { CyberDivider } from '@/ui/CyberDivider/CyberDivider';
+import { ListItem } from '@/ui/List/ListItem';
+import Button from '@/ui/Button';
+import { Modal } from '@/ui/Modal/Modal';
 
 // Выносим функции маршрутов в константы, чтобы они не вызывались при каждом рендере
 const ROUTES = {
@@ -18,10 +21,12 @@ const ROUTES = {
     avatar: getRouteAvatar(),
 };
 
-
-
 export const HomePage = () => {
     const { t } = useTranslation('pages');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => setIsModalOpen(true);
+    const handleCloseModal = () => setIsModalOpen(false);
 
     return (
         <div className={cls.HomePage}>
@@ -56,6 +61,15 @@ export const HomePage = () => {
                     >
                         {t('home.avatar')}
                     </ListItemLink>
+                    <ListItem className={cls.MenuItem}>
+                        <Button
+                            className={cls.MenuBtn}
+                            variant="menu"
+                            onClick={handleOpenModal}
+                        >
+                            {t('home.settings')}
+                        </Button>
+                    </ListItem>
                 </List>
             </div>
         </div>

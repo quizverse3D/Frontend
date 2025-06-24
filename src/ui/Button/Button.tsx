@@ -1,17 +1,21 @@
-import React, { ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import cls from './Button.module.scss';
 import { classNames } from '@/shared/utils/classNames/classNames';
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     children?: ReactNode;
+    onClick?: () => void;
+    variant?: string;
 }
 
 function Button(props: ButtonProps) {
-    const { className = '', children, ...otherProps } = props;
+    const { className = '', children, variant, ...otherProps } = props;
     return (
         <button
-            className={classNames(cls.Btn, {}, [className])}
+            className={classNames(variant === 'menu' ? '' : cls.Btn, {}, [
+                className,
+            ])}
             {...otherProps}
         >
             {children}

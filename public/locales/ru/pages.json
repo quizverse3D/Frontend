@@ -2,7 +2,8 @@
   "home": {
     "single": "Одиночная игра",
     "avatar": "Редактор аватара",
-    "multiplayer": "Мультиплеер"
+    "multiplayer": "Мультиплеер",
+    "settings": "Настройки"
   },
   "game": {
     "title": "Игра"
