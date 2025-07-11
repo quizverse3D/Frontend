@@ -1,4 +1,4 @@
-import { AppLink, AppLinkProps } from '@/ui/AppLink/AppLink';
+import { AppLink, AppLinkProps } from '@/ui/AppLink';
 import { classNames } from '@/shared/utils/classNames/classNames';
 import cls from './List.module.scss';
 
