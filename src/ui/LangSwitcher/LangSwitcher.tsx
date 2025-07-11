@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button } from '../Button';
 import cls from './LangSwitcher.module.scss';
-import Button from '../Button';
 
 export const LangSwitcher = () => {
     const { t, i18n } = useTranslation();
