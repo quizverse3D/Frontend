@@ -1,2 +1,1 @@
-import Settings from './Settings.tsx';
-export default Settings; 
+export { Settings } from './Settings.tsx';

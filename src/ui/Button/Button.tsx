@@ -9,7 +9,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: string;
 }
 
-function Button(props: ButtonProps) {
+export const Button = (props: ButtonProps) => {
     const { className = '', children, variant, ...otherProps } = props;
     return (
         <button
@@ -21,6 +21,4 @@ function Button(props: ButtonProps) {
             {children}
         </button>
     );
-}
-
-export default Button;
+};
