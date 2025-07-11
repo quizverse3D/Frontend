@@ -23,13 +23,11 @@ export const MatrixRain: React.FC = () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         mountRef.current?.appendChild(renderer.domElement);
 
-        // 2. Настройки эффекта (как в фильме)
         const COLUMNS = 50;
         const CHAR_SIZE = 0.2;
         const FALL_SPEED = 0.05;
         const TRAIL_LENGTH = 15; // Длина "хвоста" у символов
 
-        // 3. Символы (только латиница и цифры)
         const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
         const particles: THREE.Mesh[] = [];
 
