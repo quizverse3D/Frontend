@@ -1,0 +1,32 @@
+@use 'sass:color';
+
+.Modal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(
+        0deg,
+        $red 0%,
+        color.mix($red, $dark, $weight: 70%) 0%,
+        $dark 50%
+    );
+    box-shadow: 0 0 80px 0 rgba($second-red, 0.25) inset;
+    animation: neon-bg-fade 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid $second-red;
+    padding: 1em;
+    border-radius: 0.5em;
+    z-index: 2;
+    overflow-y: auto;
+}
+
+.ModalClose {
+    position: sticky;
+    right: 0;
+    top: 0;
+    align-self: flex-end;
+}
