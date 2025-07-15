@@ -35,7 +35,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <label className={cls.Label}>
-            {label && <span>{label}</span>}
+            {label && <span className={cls.LabelSpan}>{label}</span>}
             <input className={cls.Input} {...otherProps} />
         </label>
     );

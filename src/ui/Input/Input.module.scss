@@ -1,24 +1,29 @@
 .Label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3em;
-    font-size: 1rem;
-    color: $white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.LabelSpan {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: $white;
+  text-shadow: 0 0 5px $white;
 }
 
 .Input {
-    padding: 0.5em 1em;
-    border-radius: 4px;
-    border: 1.5px solid $neon-blue;
-    font-size: 1rem;
-    color: $white;
-    background: $dark;
-    transition: border 0.2s, box-shadow 0.3s;
-    box-shadow: 0 0 6px $neon-blue-transparent;
-    &:focus,
-    &:hover {
-        border: 1.5px solid $red;
-        outline: none;
-        box-shadow: 0 0 12px $red, 0 0 24px $neon-blue-transparent inset;
-    }
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: 1.5px solid $neon-blue;
+  font-size: 1rem;
+  color: $white;
+  background: $dark;
+  transition: border 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 6px $neon-blue-transparent;
+  &:focus,
+  &:hover {
+    border: 1.5px solid $red;
+    outline: none;
+    box-shadow: 0 0 12px $red, 0 0 24px $neon-blue-transparent inset;
+  }
 }
