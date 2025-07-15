@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from '@/ui/Input/Input';
 import { Button } from '@/ui/Button/Button';
-import styles from './LoginForm.module.scss';
+import cls from './LoginForm.module.scss';
 import { useNavigate } from 'react-router-dom';
 
 interface LoginFormInputs {
@@ -45,14 +45,14 @@ export const LoginForm: React.FC = () => {
     };
 
     return (
-        <form className={styles.LoginForm} onSubmit={handleSubmit(onSubmit)}>
+        <form className={cls.LoginForm} onSubmit={handleSubmit(onSubmit)}>
             <Input
                 label='Логин'
                 {...register('username', { required: 'Введите логин' })}
                 disabled={isSubmitting}
             />
             {errors.username && (
-                <div className={styles.error}>{errors.username.message}</div>
+                <div className={cls.error}>{errors.username.message}</div>
             )}
             <Input
                 label='Пароль'
@@ -61,9 +61,9 @@ export const LoginForm: React.FC = () => {
                 disabled={isSubmitting}
             />
             {errors.password && (
-                <div className={styles.error}>{errors.password.message}</div>
+                <div className={cls.error}>{errors.password.message}</div>
             )}
-            {error && <div className={styles.error}>{error}</div>}
+            {error && <div className={cls.error}>{error}</div>}
             <Button type='submit' disabled={isSubmitting}>
                 Войти
             </Button>
