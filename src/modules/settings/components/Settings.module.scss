@@ -1,3 +1,9 @@
-.settings {
+.Settings {
   // Добавьте стили для страницы/компонента настроек
-} 
+}
+
+.SettingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

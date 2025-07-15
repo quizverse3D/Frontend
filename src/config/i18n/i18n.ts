@@ -12,7 +12,6 @@ i18n.use(Backend)
         // debug: __IS_DEV__,
         debug: false,
         defaultNS: 'pages',
-        ns: ['pages'],
 
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default

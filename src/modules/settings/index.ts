@@ -1,1 +1,1 @@
-export { Settings } from './Settings.tsx';
+export { Settings } from './components/Settings.tsx';
