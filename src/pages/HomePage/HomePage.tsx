@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  getRouteGame,
   getRouteAvatar,
   getRouteMultiplayer,
+  getRouteSetting,
 } from "@/shared/consts/routes";
 import { List, ListItemLink } from "@/ui/List/";
 import { CyberDivider } from "@/ui/CyberDivider/CyberDivider";
@@ -11,11 +11,11 @@ import cls from "./Home.module.scss";
 
 // Выносим функции маршрутов в константы, чтобы они не вызывались при каждом рендере
 const ROUTES = {
-  game: getRouteGame(),
+  settings: getRouteSetting(),
   multiplayer: getRouteMultiplayer(),
   avatar: getRouteAvatar(),
 };
- 
+
 export const HomePage = () => {
   const { t } = useTranslation("pages");
   return (
@@ -25,7 +25,7 @@ export const HomePage = () => {
         <CyberDivider />
         <List className={cls.MenuList}>
           <ListItemLink
-            to={ROUTES.game}
+            to={ROUTES.settings}
             itemClassName={cls.MenuItem}
             linkClassName={cls.MenuLink}
             activeClassName={cls.ActiveLink}
