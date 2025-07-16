@@ -1,3 +1,81 @@
-.Select {
-    
+.SelectWrapper {
+  font-family: "Rajdhani", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.SelectLabel {
+  color: $white;
+  text-shadow: 0 0 5px $white;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.Slider {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid $neon-blue;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.SliderArrow {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: $neon-blue;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 15px;
+  height: 100%;
+  transition: 0.2s;
+  &:hover {
+    color: $neon-yellow;
+  }
+}
+
+.SliderMainWrapp {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.SliderMain {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.SliderValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  color: $white;
+  font-weight: bold;
+}
+
+.SliderPagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.SliderPaginationItem {
+  display: flex;
+  width: 15px;
+  height: 3px;
+  border-radius: 5px;
+  background: $neon-pink;
+  transition: 0.3s;
+  &.ActivePagincation {
+    background: $neon-yellow;
+  }
 }
