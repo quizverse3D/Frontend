@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Input } from "@/ui/Input";
+
+import { Select } from "@/ui/Select";
+import { SelectOption } from "@/ui/Select";
 
 import cls from "./Settings.module.scss";
 
@@ -43,11 +46,23 @@ async function fakeSettingsApi(userId: string) {
 
 export const Settings = (props: SettingsProps) => {
   const { t } = useTranslation("settings");
+  const roleOptions: SelectOption[] = [
+    { label: t("Ведущий"), value: "Lead" },
+    { label: t("Игрок"), value: "Player" },
+    { label: t("Зритель"), value: "Viewer" },
+  ];
+  const [selectedRole, setSelectedRole] = useState<string>("Player");
   return (
     <div>
       <div className={cls.SettingsList}>
         <Input label={t("Наименование комнаты")} />
         <Input label={t("Пароль")} />
+        <Select
+          label={t("Моя роль")}
+          value={selectedRole}
+          options={roleOptions}
+          onChange={setSelectedRole}
+        />
       </div>
     </div>
   );

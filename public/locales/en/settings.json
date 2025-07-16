@@ -1,5 +1,9 @@
 {
     "Настройки": "Room Settings",
     "Наименование комнаты": "Room name",
-    "Пароль": "Password"
+    "Пароль": "Password",
+    "Моя роль": "My role",
+    "Ведущий": "Lead",
+    "Игрок": "Player",
+    "Зритель": "Viewer"
 }
