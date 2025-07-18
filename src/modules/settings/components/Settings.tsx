@@ -7,6 +7,7 @@ import { Select } from "@/ui/Select";
 import { SelectOption } from "@/ui/Select";
 
 import cls from "./Settings.module.scss";
+import { Checkbox } from "@/ui/Checkbox";
 
 interface SettingsProps {
   userSettings?: Object; // TODO Добавить интрефейс
@@ -53,16 +54,21 @@ export const Settings = (props: SettingsProps) => {
   ];
   const [selectedRole, setSelectedRole] = useState<string>("Player");
   return (
-    <div>
+    <div className={cls.Settings}>
+      <div className={cls.SettingsNav}></div>
       <div className={cls.SettingsList}>
-        <Input label={t("Наименование комнаты")} />
-        <Input label={t("Пароль")} />
-        <Select
-          label={t("Моя роль")}
-          value={selectedRole}
-          options={roleOptions}
-          onChange={setSelectedRole}
-        />
+        <div className={cls.SettingsListBlock}>
+          <h2>Общие настройки</h2>
+          <Input label={t("Наименование комнаты")} />
+          <Input label={t("Пароль")} />
+          <Select
+            label={t("Моя роль")}
+            value={selectedRole}
+            options={roleOptions}
+            onChange={setSelectedRole}
+          />
+          <Checkbox label={t("Фальстарт")} />
+        </div>
       </div>
     </div>
   );

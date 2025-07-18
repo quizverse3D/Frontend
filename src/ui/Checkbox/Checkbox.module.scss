@@ -1,0 +1,96 @@
+.Checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px 0;
+  cursor: pointer;
+  font-family: $font-secondary;
+  user-select: none;
+  color: $neon-blue;
+  gap: 12px;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .HiddenInput {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  .CheckboxContainer {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+
+  .CheckboxOuter {
+    width: 100%;
+    height: 100%;
+    border: 2px solid $neon-blue-transparent;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .CheckboxInner {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: $neon-blue-transparent;
+    transition: all 0.2s ease;
+  }
+
+  .Checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+  }
+
+  .LabelText {
+    flex-grow: 1;
+    font-weight: bold;
+  }
+
+  .StatusText {
+    min-width: 40px;
+    text-align: right;
+    color: $neon-pink;
+    text-shadow: 0 0 8px $neon-pink-transparent;
+    font-weight: bold;
+  }
+
+  &.checked {
+    .CheckboxInner {
+      background: rgba($neon-blue, 0.7);
+    }
+    .CheckboxOuter {
+      border-color: $neon-blue;
+    }
+  }
+
+  .HiddenInput:focus-visible ~ .CheckboxContainer {
+    .CheckboxOuter {
+      border-color: $neon-blue;
+      box-shadow: 0 0 12px $neon-blue-transparent;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba($neon-blue, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba($neon-blue, 0);
+  }
+}
