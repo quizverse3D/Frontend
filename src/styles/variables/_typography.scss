@@ -1,7 +1,7 @@
-@use './colors-neon' as *;
+@use "./colors-neon" as *;
 
-$font-primary: 'Rajdhani', 'Segoe UI', sans-serif;
-$font-secondary: 'Orbitron', 'Arial', sans-serif; // Для заголовков
+$font-primary: "Rajdhani", "Segoe UI", sans-serif;
+$font-secondary: "Orbitron", "Arial", sans-serif; // Для заголовков
 
 $text-base-size: 16px;
 
@@ -12,3 +12,9 @@ $text-lg: 1.125rem;
 $text-xl: 1.25rem;
 
 $text-glow: 0 0 8px rgba($neon-blue, 0.7);
+
+$primary: #f0f0f0;
+$secondary: #b8b8ff;
+
+$heading-primary: $neon-pink;
+$heading-secondary: $neon-lavender;

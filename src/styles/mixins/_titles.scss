@@ -1,139 +1,172 @@
-@use '../variables/colors-neon' as *;
-@use '../variables/_typography' as *;
-
+@use "../variables/colors-neon" as *;
+@use "../variables/_typography" as *;
 
 @mixin base-title {
-    position: relative;
-    color: $neon-pink;
-    text-shadow: 0 0 15px $neon-pink, 0 0 30px rgba($neon-pink, 0.8);
-    text-align: center;
-    font-family: $font-secondary;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.2em;
-    text-transform: uppercase;
+  color: $heading-primary;
+  text-shadow: 0 0 12px $neon-pink-transparent;
+  text-align: center;
+  font-family: $font-secondary;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2em;
+  text-transform: uppercase;
+  animation: glitch-main 4s infinite linear alternate;
 
-    // Основная анимация
-    animation: glitch-main 4s infinite linear alternate;
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+  }
 
-    // Глитч-клоны
-    &::before,
-    &::after {
-        content: attr(data-text);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.9;
-    }
+  &::before {
+    color: $neon-blue;
+    text-shadow: 3px 0 $neon-blue;
+    animation: glitch-clone-1 3s infinite linear alternate-reverse;
+    clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%);
+    z-index: -1;
+  }
 
-    &::before {
-        color: $neon-blue;
-        text-shadow: 3px 0 $neon-blue;
-        animation: glitch-clone-1 3s infinite linear alternate-reverse;
-        clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%);
-        z-index: -1;
-    }
+  &::after {
+    color: $neon-green;
+    text-shadow: -3px 0 $neon-green;
+    animation: glitch-clone-2 2.7s infinite linear alternate;
+    clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
+    z-index: -2;
+  }
+}
 
-    &::after {
-        color: $neon-green;
-        text-shadow: -3px 0 $neon-green;
-        animation: glitch-clone-2 2.7s infinite linear alternate;
-        clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
-        z-index: -2;
-    }
+@mixin subtitle {
+  color: $heading-secondary;
+  text-shadow: 0 0 8px $neon-lavender-transparent;
+  font-family: $font-secondary;
+  font-size: 1.3em;
+  letter-spacing: 0.06em;
+  margin: 0.7em 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  animation: lavender-glow 5s infinite alternate;
+
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $neon-pink; // Связь с h1
+    text-shadow: 1px 0 $neon-pink;
+    z-index: -1;
+    opacity: 0.4;
+    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+  }
+}
+
+@keyframes lavender-glow {
+  0%,
+  100% {
+    opacity: 0.95;
+    text-shadow: 0 0 8px $neon-lavender;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 12px $neon-lavender, 0 0 24px $neon-lavender-transparent,
+      0 0 36px rgba($neon-pink, 0.3); // Единичный розовый блик
+  }
 }
 
 // Основное мерцание
 @keyframes glitch-main {
-    0%,
-    40%,
-    44%,
-    60%,
-    62%,
-    80%,
-    84%,
-    100% {
-        text-shadow: 0 0 15px $neon-pink, 0 0 30px rgba($neon-pink, 0.8),
-            2px 0 0 $neon-blue, -2px 0 0 $neon-green;
-    }
-    42% {
-        text-shadow: 0 0 20px $neon-pink, 0 0 40px $neon-pink,
-            5px 0 0 $neon-blue, -5px 0 0 $neon-green;
-    }
-    82% {
-        text-shadow: 0 0 25px $neon-pink, 0 0 50px $neon-pink,
-            -5px 0 0 $neon-blue, 5px 0 0 $neon-green;
-    }
+  0%,
+  40%,
+  44%,
+  60%,
+  62%,
+  80%,
+  84%,
+  100% {
+    text-shadow: 0 0 15px $neon-pink, 0 0 30px rgba($neon-pink, 0.8),
+      2px 0 0 $neon-blue, -2px 0 0 $neon-green;
+  }
+  42% {
+    text-shadow: 0 0 20px $neon-pink, 0 0 40px $neon-pink, 5px 0 0 $neon-blue,
+      -5px 0 0 $neon-green;
+  }
+  82% {
+    text-shadow: 0 0 25px $neon-pink, 0 0 50px $neon-pink, -5px 0 0 $neon-blue,
+      5px 0 0 $neon-green;
+  }
 }
 
 @keyframes glitch-clone-1 {
-    0%,
-    92%,
-    100% {
-        transform: translate(0);
-        opacity: 0;
-    }
-    93% {
-        transform: translate(-8px, 5px);
-        opacity: 0.8;
-    }
-    94% {
-        transform: translate(6px, -4px);
-        opacity: 0.8;
-    }
-    95% {
-        transform: translate(10px, 8px);
-        opacity: 0.8;
-    }
+  0%,
+  92%,
+  100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  93% {
+    transform: translate(-8px, 5px);
+    opacity: 0.8;
+  }
+  94% {
+    transform: translate(6px, -4px);
+    opacity: 0.8;
+  }
+  95% {
+    transform: translate(10px, 8px);
+    opacity: 0.8;
+  }
 }
 
 @keyframes glitch-clone-2 {
-    0%,
-    88%,
-    100% {
-        transform: translate(0);
-        opacity: 0;
-    }
-    89% {
-        transform: translate(12px, -6px);
-        opacity: 0.8;
-    }
-    90% {
-        transform: translate(-7px, 3px);
-        opacity: 0.8;
-    }
-    91% {
-        transform: translate(-10px, -8px);
-        opacity: 0.8;
-    }
+  0%,
+  88%,
+  100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  89% {
+    transform: translate(12px, -6px);
+    opacity: 0.8;
+  }
+  90% {
+    transform: translate(-7px, 3px);
+    opacity: 0.8;
+  }
+  91% {
+    transform: translate(-10px, -8px);
+    opacity: 0.8;
+  }
 }
 
 @mixin scanline {
-    position: relative;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(
-            to bottom,
-            transparent,
-            $neon-pink 50%,
-            transparent
-        );
-        animation: scan 3s linear infinite;
-        z-index: 10;
-    }
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      $neon-pink 50%,
+      transparent
+    );
+    animation: scan 3s linear infinite;
+    z-index: 10;
+  }
 }
 
 @keyframes scan {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(calc(100% + 1.2em));
-    }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(calc(100% + 1.2em));
+  }
 }

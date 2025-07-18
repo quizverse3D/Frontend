@@ -10,7 +10,7 @@
     transition: background 0.25s, box-shadow 0.3s;
     cursor: pointer;
     background: none;
-    color: $white;
+    color: $primary;
     text-align: center;
     &:hover,
     &.active {
@@ -35,7 +35,7 @@
     display: block;
     width: 100%;
     padding: 0.4em 0;
-    color: $white;
+    color: $primary;
     background: none;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;

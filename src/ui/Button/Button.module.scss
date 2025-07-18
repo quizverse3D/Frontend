@@ -10,10 +10,10 @@
     font-weight: 600;
     position: relative;
     z-index: 1;
-    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s,
+    transition: background 2s cubic-bezier(0.4, 0, 0.2, 1), color 2s,
         box-shadow 0.3s;
     background: $dark;
-    color: $white;
+    color: $primary;
     box-shadow: 0 0 8px $second-red;
     &:hover,
     &:focus {
@@ -30,7 +30,7 @@
         &:hover,
         &:focus {
             background: $red;
-            color: $white;
+            color: $primary;
             box-shadow: 0 0 16px $second-red,
                 0 0 24px $neon-blue-transparent inset;
         }

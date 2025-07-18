@@ -18,7 +18,7 @@
 
 .MenuItem {
   padding: 0.6em;
-  border-radius: 5px;
+  border-radius: 6px;
   background: linear-gradient(
     145deg,
     rgba($dark, 0.8) 0%,
@@ -27,7 +27,7 @@
   border: 1.5px solid $neon-blue;
   box-shadow: 0 0 15px rgba($neon-blue, 0.3),
     inset 0 0 10px rgba($neon-blue, 0.1);
-  color: $white;
+  color: $primary;
   font-weight: 600;
   font-size: 1.1em;
   letter-spacing: 0.03em;
@@ -51,12 +51,12 @@
 
 .MenuLink {
   text-transform: uppercase;
-  color: $white;
+  color: $primary;
 }
 
 .MenuBtn {
   text-transform: uppercase;
-  color: $white;
+  color: $primary;
   padding: 0.4em 0;
 }
 

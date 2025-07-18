@@ -1,81 +1,127 @@
 .SelectWrapper {
-  font-family: "Rajdhani", sans-serif;
   display: flex;
   flex-direction: column;
+  gap: 0.4em;
   width: 100%;
-  margin: 10px 0;
 }
 
 .SelectLabel {
-  color: $white;
-  text-shadow: 0 0 5px $white;
+  font-family: $font-secondary;
+  color: $primary;
   font-weight: bold;
-  margin-bottom: 5px;
+  letter-spacing: 0.05em;
 }
 
 .Slider {
   display: flex;
   align-items: center;
-  border: 1.5px solid $neon-blue;
-  border-radius: 5px;
-  padding: 7px;
+  justify-content: space-between;
+  border: 1px solid rgba($neon-blue, 0.5);
+  border-radius: 6px;
+  padding: 0 8px;
+  min-height: 44px;
+  background: rgba($dark, 0.4);
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba($neon-blue-transparent, 0.2);
+
+  &:hover {
+    border-color: $neon-blue;
+  }
 }
 
 .SliderArrow {
-  display: flex;
-  align-items: center;
   background: none;
   border: none;
-  color: $neon-blue;
-  font-size: 20px;
+  color: $neon-blue-transparent;
+  font-size: 24px;
   cursor: pointer;
-  padding: 0 15px;
+  padding: 0 12px;
   height: 100%;
-  transition: 0.2s;
+  transition: all 0.3s ease;
+
   &:hover {
     color: $neon-yellow;
+    text-shadow: 0 0 8px $neon-yellow;
   }
 }
 
 .SliderMainWrapp {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  flex: 1;
 }
 
 .SliderMain {
   display: flex;
-  position: relative;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 4px;
+  padding: 4px 0;
 }
 
 .SliderValue {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  color: $white;
-  font-weight: bold;
+  color: $primary;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0 10px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px;
+    background: $neon-blue;
+    border-radius: 2px;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  &.active::after {
+    opacity: 1;
+    width: 80%;
+  }
 }
 
 .SliderPagination {
   display: flex;
   justify-content: center;
-  width: 100%;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .SliderPaginationItem {
-  display: flex;
-  width: 15px;
+  width: 16px;
   height: 3px;
-  border-radius: 5px;
-  background: $neon-pink;
-  transition: 0.3s;
+  border-radius: 3px;
+  background: rgba($neon-blue, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($neon-blue, 0.7);
+  }
+
   &.ActivePagincation {
     background: $neon-yellow;
+    transform: scaleY(1.5);
   }
+}
+
+@keyframes slide-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.SliderMain-enter {
+  animation: slide-fade 0.3s ease-out;
 }

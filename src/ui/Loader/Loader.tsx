@@ -3,8 +3,8 @@ import styles from './Loader.module.scss';
 
 function Loader() {
   return (
-    <div className={styles.loader}>
-      <div className={styles.spinner} />
+    <div className={styles.Loader}>
+      <div className={styles.Spinner} />
     </div>
   );
 }

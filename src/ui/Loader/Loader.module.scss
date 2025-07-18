@@ -1,24 +1,30 @@
-.loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
+@use "sass:color";
+
+.Loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  z-index: 5;
 }
 
-.spinner {
-    width: 32px;
-    height: 32px;
-    border: 4px solid #741a1a;
-    border-top: 4px solid #3b1515;
-    border-radius: 50%;
-    animation: loader-spin 1s linear infinite;
+.Spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid $neon-purple;
+  border-top: 4px solid color.adjust($neon-purple, $lightness: -20%);
+  border-radius: 50%;
+  animation: loader-spin 1s linear infinite;
 }
 
 @keyframes loader-spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

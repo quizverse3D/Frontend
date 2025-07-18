@@ -1,9 +1,13 @@
-@use 'reset';
+@use "reset";
 
 * {
-    color: $white;
+  color: $primary;
 }
 
 h1 {
-    font-size: 2em;
+  @include base-title;
+}
+
+h2 {
+  @include subtitle;
 }
