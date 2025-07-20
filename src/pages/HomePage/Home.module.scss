@@ -2,14 +2,10 @@
   @include page-flex-center;
 }
 
-.Title {
-  @include base-title;
-}
-
 .MenuWrapper {
   height: 300px;
   width: 370px;
-  @include page-content-wrapp;
+  @include content-wrapp;
 }
 
 .Menu {

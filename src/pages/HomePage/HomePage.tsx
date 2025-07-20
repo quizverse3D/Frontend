@@ -19,10 +19,13 @@ const ROUTES = {
 export const HomePage = () => {
   const { t } = useTranslation("pages");
   return (
-    <div className={cls.HomePage}>
+    <section className={cls.HomePage}>
       <div className={cls.MenuWrapper}>
-        <h1 className={cls.Title}>Quizverse 3D</h1>
-        <CyberDivider />
+        <header>
+          <h1 className={cls.Title}>Quizverse 3D</h1>
+          <CyberDivider />
+        </header>
+
         <List className={cls.MenuList}>
           <ListItemLink
             to={ROUTES.settings}
@@ -52,6 +55,6 @@ export const HomePage = () => {
           </ListItemLink>
         </List>
       </div>
-    </div>
+    </section>
   );
 };

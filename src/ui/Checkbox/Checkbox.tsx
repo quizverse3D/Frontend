@@ -40,7 +40,6 @@ export const Checkbox = ({
       />
 
       <span className={cls.LabelText}>{label}</span>
-      <div className={cls.StatusText}>{isChecked ? "ON" : "OFF"}</div>
 
       <div className={cls.CheckboxContainer}>
         <div className={cls.CheckboxOuter}>
