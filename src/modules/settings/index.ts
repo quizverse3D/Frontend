@@ -1,1 +1,1 @@
-export { Settings } from './components/Settings.tsx';
+export { RoomSettings } from './room/components/RoomSettings.tsx';

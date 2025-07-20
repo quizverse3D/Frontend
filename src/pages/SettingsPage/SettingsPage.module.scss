@@ -1,13 +1,3 @@
 .SettingsPage {
   @include page-flex-center;
 }
-
-.SettingsWrapper {
-  @include page-content-wrapp;
-  height: 70%;
-  width: 50%;
-}
-
-.Title {
-  @include base-title;
-}

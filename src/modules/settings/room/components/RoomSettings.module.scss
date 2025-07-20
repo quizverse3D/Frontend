@@ -1,0 +1,30 @@
+.Settings {
+  @include content-wrapp;
+  height: 70%;
+  width: 70%;
+  overflow-y: scroll;
+
+  .SettingsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .SettingsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid rgba($primary, 0.4);
+    padding-bottom: 30px;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .SettingsNav {
+    width: 200px;
+    border: 1px solid #000;
+  }
+}

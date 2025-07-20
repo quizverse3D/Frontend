@@ -6,5 +6,8 @@
     "Ведущий": "Lead",
     "Игрок": "Player",
     "Зритель": "Viewer",
-    "Фальстарт": "False start"
+    "Фальстарт": "False start",
+    "Общие настройки": "General settings",
+    "Правила игры": "Game rules",
+    "Штраф за неправильный ответ": "Penalty for wrong answer"
 }

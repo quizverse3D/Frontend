@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-@mixin page-content-wrapp {
+@mixin content-wrapp {
   background: rgba($dark, 0.95);
   padding: 2rem;
   border: 1.5px solid $neon-blue;
