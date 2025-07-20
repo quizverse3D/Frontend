@@ -2,21 +2,21 @@ import React, { useState, KeyboardEvent, useId } from "react";
 import { classNames } from "@/shared/utils/classNames/classNames";
 import cls from "./Select.module.scss";
 
-export interface SelectOption {
-  value: string;
+export interface SelectOption<T = string> {
+  value: T;
   label: string;
 }
 
-interface SelectProps {
+interface SelectProps<T = string> {
   label: string;
-  options: SelectOption[];
-  value: string;
-  onChange: (value: string) => void;
+  options: SelectOption<T>[];
+  value: T;
+  onChange: (value: T) => void;
   className?: string;
   disabled?: boolean;
 }
 
-export const Select = (props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     value,
     onChange,
