@@ -11,3 +11,25 @@ h1 {
 h2 {
   @include subtitle;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $neon-purple;
+  border-radius: 4px;
+  border: 1px solid $neon-blue;
+  box-shadow: 0 0 5px rgba($neon-purple, 0.7), 0 0 10px rgba($neon-purple, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $neon-pink;
+  box-shadow: 0 0 8px rgba($neon-pink, 0.9), 0 0 15px rgba($neon-pink, 0.6);
+}
