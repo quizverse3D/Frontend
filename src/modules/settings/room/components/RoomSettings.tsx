@@ -11,15 +11,14 @@ import { SettingsProps, UserRole } from "../../shared/types";
 import cls from "./RoomSettings.module.scss";
 
 export const RoomSettings: React.FC<SettingsProps> = (props: SettingsProps) => {
-  const { t } = useTranslation("settings");
+  const [selectedRole, setSelectedRole] = useState<UserRole>("Player");
 
+  const { t } = useTranslation("settings");
   const roleOptions: SelectOption<UserRole>[] = [
     { label: t("Ведущий"), value: "Lead" },
     { label: t("Игрок"), value: "Player" },
     { label: t("Зритель"), value: "Viewer" },
   ];
-
-  const [selectedRole, setSelectedRole] = useState<UserRole>("Player");
 
   return (
     <section className={cls.Settings} aria-label={t("Настройки игры")}>
@@ -28,17 +27,9 @@ export const RoomSettings: React.FC<SettingsProps> = (props: SettingsProps) => {
         <CyberDivider />
       </header>
 
-      <div className={cls.SettingsContent}>
-        <nav
-          className={cls.SettingsNav}
-          aria-label={t("Навигация по настройкам")}
-        ></nav>
-
-        <div className={cls.SettingsList}>
-          <section
-            className={cls.SettingsSection}
-            aria-labelledby="general-settings"
-          >
+      <div className={cls.Content}>
+        <div className={cls.List}>
+          <section className={cls.Section} aria-labelledby="general-settings">
             <h2 id="general-settings">{t("Общие настройки")}</h2>
             <Input
               label={t("Наименование комнаты")}
@@ -58,7 +49,7 @@ export const RoomSettings: React.FC<SettingsProps> = (props: SettingsProps) => {
             />
           </section>
 
-          <section className={cls.SettingsSection} aria-labelledby="game-rules">
+          <section className={cls.Section} aria-labelledby="game-rules">
             <h2 id="game-rules">{t("Правила игры")}</h2>
             <Checkbox
               label={t("Фальстарт")}

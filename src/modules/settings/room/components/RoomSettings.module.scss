@@ -2,29 +2,24 @@
   @include content-wrapp;
   height: 70%;
   width: 70%;
-  overflow-y: scroll;
+  overflow-y: auto;
 
-  .SettingsList {
+  .List {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.7em;
   }
 
-  .SettingsSection {
+  .Section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.7em;
     border-bottom: 1px solid rgba($primary, 0.4);
-    padding-bottom: 30px;
+    padding-bottom: 1.8em;
 
     &:last-child {
       border-bottom: none;
       padding-bottom: 0;
     }
-  }
-
-  .SettingsNav {
-    width: 200px;
-    border: 1px solid #000;
   }
 }
