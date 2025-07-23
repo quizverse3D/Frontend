@@ -1,10 +1,10 @@
 import { MainLayout } from '@/layouts/MainLayout';
-import { HomePage } from '@/pages/HomePage/HomePage';
-import { GamePage } from '@/pages/GamePage/GamePage';
-import { AuthorizationPage } from '@/pages/AuthorizationPage/AuthorizationPage';
-import { SettingsPage } from '@/pages/SettingsPage/SettingsPage';
-import { ForbiddenPage } from '@/pages/ForbiddenPage/ForbiddenPage';
-import { NotFoundPage } from '@/pages/NotFoundPage/NotFoundPage';
+import { HomePage } from '@/pages/HomePage';
+import { GamePage } from '@/pages/GamePage';
+import { AuthorizationPage } from '@/pages/AuthorizationPage';
+import { SettingsPage } from '@/pages/SettingsPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import {
     getRouteAuthorization,
     getRouteAvatar,
@@ -15,8 +15,8 @@ import {
     getRouteSetting,
 } from '../shared/consts/routes';
 import { RouteObject } from 'react-router-dom';
-import { AvatarPage } from '@/pages/AvatarPage/AvatarPage';
-import { MultiplayerPage } from '@/pages/MultiplayerPage/MultiplayerPage';
+import { AvatarPage } from '@/pages/AvatarPage';
+import { MultiplayerPage } from '@/pages/MultiplayerPage';
 
 export type AppRoutesProps = RouteObject & {
     authOnly?: boolean;
