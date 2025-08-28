@@ -1,0 +1,28 @@
+.MultiplayerRomms {
+  @include content-wrapp;
+  height: 90%;
+  width: 70%;
+  overflow-y: auto;
+
+  .Content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .RoomsWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .RoomsList {
+    display: flex;
+  }
+
+  .RoomInfo {
+    display: flex;
+    flex-basis: 50%;
+    border-left: 1px solid;
+  }
+}
