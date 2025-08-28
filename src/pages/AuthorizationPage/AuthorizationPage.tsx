@@ -1,4 +1,3 @@
-import React from "react";
 import { LoginForm } from "@/modules/authorization/components/LoginForm";
 import { CyberDivider } from "@/ui/CyberDivider/CyberDivider";
 

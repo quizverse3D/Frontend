@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { classNames } from "@/shared/utils/classNames/classNames";
 import cls from "./Checkbox.module.scss";
 
-interface CyberCheckboxProps {
+interface CheckboxProps {
   label: string;
   checked?: boolean;
   onChange?: (checked: boolean) => void;
@@ -14,7 +14,7 @@ export const Checkbox = ({
   checked = false,
   onChange,
   disabled = false,
-}: CyberCheckboxProps) => {
+}: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleChange = () => {

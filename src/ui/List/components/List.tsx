@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import cls from "./List.module.scss";
 import { classNames } from "@/shared/utils/classNames/classNames";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 interface ListProps {

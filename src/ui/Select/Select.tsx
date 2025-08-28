@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEvent, useId } from "react";
+import React, { KeyboardEvent, useId } from "react";
 import { classNames } from "@/shared/utils/classNames/classNames";
 import cls from "./Select.module.scss";
 
