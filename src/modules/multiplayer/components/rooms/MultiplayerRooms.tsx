@@ -46,15 +46,16 @@ export const MultiplayerRooms = () => {
             {rooms.map((item) => {
               return (
                 <ListItem
-                  children={item.name}
                   onClickHandler={roomClickHandler}
-                  isOnlyText={false}
+                  title={item.name}
+                  isHint
+                  key={item.id}
                 />
               );
             })}
           </List>
           <div className={cls.RoomInfo}>
-            <h2> Наименование комнаты</h2>
+            <h2 className={cls.RoomTitle}> Наименование комнаты</h2>
           </div>
         </div>
       </div>

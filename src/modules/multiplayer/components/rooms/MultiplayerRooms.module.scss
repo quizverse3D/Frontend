@@ -7,13 +7,13 @@
   .Content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.7em;
   }
 
   .RoomsWrapper {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 0.7em;
   }
 
   .RoomsList {
@@ -24,5 +24,10 @@
     display: flex;
     flex-basis: 50%;
     border-left: 1px solid;
+    padding-left: 1em;
+  }
+
+  .RoomTitle {
+    margin-top: 0;
   }
 }
